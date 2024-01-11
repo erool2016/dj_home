@@ -9,8 +9,9 @@ def students_list(request):
 
     ordering = 'group'
 
-    students = Student.objects.all().prefetch_related('teachers').order_by(ordering)
+    students = Student.objects.prefetch_related('teachers').order_by(ordering)
     context = {'students': students}
+    print(students)
     # используйте этот параметр для упорядочивания результатов
     # https://docs.djangoproject.com/en/2.2/ref/models/querysets/#django.db.models.query.QuerySet.order_by
 
